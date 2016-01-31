@@ -1,4 +1,4 @@
-// MtoN-Converter will prompt the user for a value in one numerical system and convert it to another numerical system, supports up to base 36
+// MtoN-Converter will prompt the user for a value in one numerical system and convert it to another numerical system, supports up to base 64
 // Programmed by Kristopher Rollins
 
 #include <iostream>
@@ -16,6 +16,8 @@ char intToChar(int i);
 int charToInt(char i);
 void printResults(string m, string n, int mNumSys, int nNumSys);
 char userContinue();
+
+const char theList[65] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
 
 void main()
 {
@@ -108,17 +110,13 @@ void dToN(int cVal, string * n, int numSys)
 // intToChar accepts an integer value and returns the appropriate char to represent it
 char intToChar(int i)
 {
-	char theList[37] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	return theList[i];
 }
 
 // charToInt accepts a char and returns the int value that it represents
 int charToInt(char i)
 {
-	i = toupper(i);
-	char theList[37] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
-	for (int x = 0; x < 37; x++)
+	for (int x = 0; x < 65; x++)
 	{
 		if (theList[x] == i)
 			return x;
